@@ -1,0 +1,14 @@
+<div class="row comment-fix">
+  <div class="col-md-2">
+    <section class="player_info center">
+      <%= gravatar_for(comment.player, size: 60) %>
+    </section>
+  </div>
+  <div class="col-md-8 well well2">
+    <p class="font-paragraph3"><%= comment.description %><p>
+    <p>
+      <span class="quiet"><small class="font-paragraph">Criado: <span class="font-paragraph4"><%= distance_of_time_in_words(comment.created_at, Time.zone.now, include_seconds: true, locale: 'pt') %> atrás por 
+    <%= comment.player.playername %></span></small></span>
+    </p>
+  </div>
+</div>

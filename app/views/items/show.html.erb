@@ -1,0 +1,17 @@
+<div class="background">
+  <div class="inner-div">
+    <%= render 'shared/page_title', title: "#{@item.name}" %>
+    <% if @item.posts.count != 0 %>
+      <h4 align="center" class="page-label">Postagens com <%= @item.name.capitalize %></h4>
+      <div align="center">
+        <%= will_paginate @item_posts %>
+      </div>
+        <%= render 'posts/post', obj: @item_posts %>
+      <div align="center">
+        <%= will_paginate @item_posts %>
+      </div>
+    <% else %>
+      <h4 align="center" class="page-label">Ainda não há postagens!</h4>
+    <% end %>
+  </div>
+</div>

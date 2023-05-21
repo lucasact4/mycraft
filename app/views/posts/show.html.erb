@@ -1,0 +1,79 @@
+<div class="background">
+  <div class="inner-div">
+    <%= render 'shared/page_title', title: @post.name %>
+    
+    <div class="well col-md-8 col-md-offset-2">
+      <h4 class="center description"><strong class="font-title">Conteúdo: </strong></h4>
+      <br />
+      <span class="font-paragraph2"><%= simple_format(@post.description) %></span>
+      <br />
+      <% if @post.items.any? %>
+        <p class="font-title">Itens: <%= render @post.items %></p>
+      <% end %>
+      <div class="pull-right">
+        <p class="center">
+          <em class="font-paragraph">Criado por:</em>
+        </p>
+        <p class="center">
+          <%= link_to gravatar_for(@post.player), player_path(@post.player) %>
+        </p>
+        <p class="center paragraph">
+          <small><%= @post.player.playername.capitalize %></small>
+          <div class="pull-right font-paragraph">há <%= time_ago_in_words(@post.created_at, include_seconds: true, locale: 'pt') %> atrás</div>
+        </p>
+      </div>
+      <div class="post-actions">
+        <% if logged_in? && (current_player == @post.player || current_player.admin?) %>
+          <%= link_to "Editar", edit_post_path(@post), class: "btn btn-xs btn-warning" %>
+          <%= link_to "Excluir", post_path(@post), method: :delete,
+            data: { confirm: "Tem certeza de que deseja excluir esta postagem?" },
+            class: "btn btn-xs btn-danger" %>
+        <% end %>
+        <%= link_to "Voltar à postagens", posts_path, class: "btn btn-xs btn-primary" %>
+      </div>
+    </div>
+    
+    <% if logged_in? %>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="page-label">Comentários: </h3>
+          <br>
+          <%= form_for([@post, @comment], :html => {class: "form-horizontal", role: "form"}) do |f| %>
+            <div class="form-group">
+              <div class="control-label col-md-2">
+                <%= f.label :description, "Comentar" %>
+              </div>
+              <div class="col-md-8">
+                <%= f.text_area :description, rows: 8, class: "form-control", placeholder: "Digite o seu comentário aqui..." %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-offset-2 col-md-10">
+                <%= f.submit "Enviar", class: "nav-butt" %>
+              </div>
+            </div>
+          <% end %>
+          <br>
+          <br>
+        </div>
+      </div>
+    <% end %>
+    
+    <% if @post.comments.any? %>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="page-label">Comentários anteriores: </h3>
+            <div id="messages">
+              <%= render partial: 'comments/comments', object: @comments %>
+            </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="page-label">Nenhum comentário ainda!</h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

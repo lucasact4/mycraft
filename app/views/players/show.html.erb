@@ -1,0 +1,22 @@
+<div class="background">
+  <div class="inner-div">
+    <%= render 'shared/page_title', title: "Perfil do jogador #{@player.playername}" %>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 center">
+        <%= gravatar_for @player, size: 150 %>
+      </div>
+    </div>
+    <% if @player.posts.count != 0 %>
+      <h4 align="center" class="page-label2">Postagens de <%= @player.playername %></h4>
+      <div align="center">
+        <%= will_paginate @player_posts %>
+      </div>
+        <%= render 'posts/post', obj: @player_posts %>
+      <div align="center">
+        <%= will_paginate @player_posts %>
+      </div>
+    <% else %>
+      <h4 align="center" class="page-label2">Ainda não há postagens!</h4>
+    <% end %>
+  </div>
+</div>

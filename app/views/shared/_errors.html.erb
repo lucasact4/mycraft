@@ -1,0 +1,37 @@
+<% if obj2 %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+            <% entity_name = case obj1
+                              when Item then 'item'
+                              when Player then 'jogador'
+                              when Post then 'postagem'
+                              else obj1.class.to_s.downcase
+                            end %>
+            <% if obj3.to_i == 1 %>
+              <%= "1 erro impediu" %>
+            <% else %>
+              <%= "#{obj3} erros impediram" %>
+            <% end %>
+            <% if entity_name == 'item' || entity_name == 'jogador' %>
+              <%= "que este #{entity_name} fosse salvo" %>
+            <% else %>
+              <%= "que esta #{entity_name} fosse salva" %>
+            <% end %>
+          </h2>
+          <div class="panel-body">
+            <ul>
+              <% obj4.each do |attribute, error_messages| %>
+                <% error_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

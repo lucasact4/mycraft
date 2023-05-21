@@ -1,0 +1,101 @@
+<div class="custom-nav">
+  <nav class="navbar navbar-default grass-nav">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="logo-shadow">
+          <%= link_to root_path, class: "navbar-brand", id: "logo" do %>
+            <%= image_tag "MyCraft.gif", alt: "MyCraft", class: "logo-image" %>
+          <% end %>
+        </div>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <%= link_to players_path do %>
+            <span class= "nav-butt">
+              <span class="imgconfig imgsteve"></span>
+              <%= content_tag :span, "Jogadores"%>
+            </span>
+            <span class="space2"></span>
+          <% end %>
+          <%= link_to posts_path do %>
+            <span class= "nav-butt">
+              <span class="imgconfig imgposts"></span>
+              <%= content_tag :span, "Postagens"%>
+            </span>
+          <% end %>
+          <% if logged_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="space"><span class="imgconfig imgcreeper"></span>Mais<span class="caret"></span></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Criar novo post", new_post_path %></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">----</a></li>
+              </ul>
+            </li>
+          <% end %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="space"><span class="imgconfig imgpickaxe"></span>Itens<span class="caret"></span></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Todos Itens", items_path %></li>
+              <li role="separator" class="divider"></li>
+              <% Item.all.each do |item| %>
+                <li><%= link_to item.name.capitalize, item_path(item) %></li>
+              <% end %>
+              <% if logged_in? && current_player.admin? %>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Adicionar item", new_item_path %></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+        <!--
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        -->
+        <!--
+        <ul>
+          <div>
+            <%= link_to root_path, class: "navbar-brand", id: "logo" do %>
+              <%= image_tag "MyCraft.gif", alt: "Myposts", class: "logo-image" %>
+            <% end %>
+          </div>
+        </ul>
+        -->
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="space"><%= current_player.playername.capitalize %> Perfil <%= "Admin" if current_player.admin? %><span class="caret"></span></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Ver meu perfil", player_path(current_player) %></li>
+                <li><%= link_to "Editar meu perfil", edit_player_path(current_player) %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Sair", logout_path, method: :delete %></li>
+              </ul>
+            </li>
+            <span class= "imgconfig2"><%= link_to gravatar_for(current_player, size: 45 ), player_path(current_player), class: "imgconfig3" %></span>
+          <% else %>
+            <%= link_to login_path do %>
+              <%= content_tag :span, "Entrar", class: "nav-butt" %>
+            <% end %>
+            <%= link_to signup_path do %>
+              <%= content_tag :span, "Cadastrar", class: "nav-butt" %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</div>

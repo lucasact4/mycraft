@@ -1,0 +1,101 @@
+pt:
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "1 erro impediu a gravação deste %{model}"
+          other: "%{count} erros impediram a gravação deste %{model}"
+      messages:
+        record_invalid: "Validação falhou: %{errors}"
+        restrict_dependent_destroy:
+          has_many: "%{record} possui dependentes %{plural_model} que restringem exclusão"
+          has_one: "%{record} possui um dependente %{model} que restringe exclusão"
+        taken: "Já está em uso"
+        empty: "Não pode estar vazio"
+        blank: "Não pode ficar em branco"
+        present: "Deve ficar em branco"
+        too_long:
+          one: "É muito longo (máximo é 1 caractere)"
+          other: "É muito longo (máximo é %{count} caracteres)"
+        too_short:
+          one: "É muito curto (mínimo é 1 caractere)"
+          other: "É muito curto (mínimo é %{count} caracteres)"
+        wrong_length:
+          one: "Tem comprimento errado (deve ter 1 caractere)"
+          other: "Tem comprimento errado (deve ter %{count} caracteres)"
+        not_a_number: "Não é um número"
+        not_an_integer: "Deve ser um número inteiro"
+        greater_than: "Deve ser maior que %{count}"
+        greater_than_or_equal_to: "Deve ser maior ou igual a %{count}"
+        equal_to: "Deve ser igual a %{count}"
+        less_than: "Deve ser menor que %{count}"
+        less_than_or_equal_to: "Deve ser menor ou igual a %{count}"
+        odd: "Deve ser ímpar"
+        even: "Deve ser par"
+        record_not_destroyed: "Não foi possível excluir %{record}"
+        record_not_saved: "Houve problemas com os seguintes campos:"
+      models:
+        player:
+          attributes:
+            playername:
+              blank: "O nome do jogador não pode estar em branco"
+            email:
+              blank: "O email do jogador não pode estar em branco"
+              invalid: "O email do jogador é inválido"
+            password:
+              blank: "A senha do jogador não pode estar em branco"
+        post:
+          attributes:
+            name:
+              blank: "O nome da postagem não pode estar em branco"
+              too_short: "O nome da postagem é muito curto (mínimo de %{count} caracteres)"
+            description:
+              blank: "A descrição da postagem não pode estar em branco"
+              too_short: "A descrição da postagem é muito curta (mínimo de %{count} caracteres)"
+            player:
+              blank: "O jogador da postagem não pode estar em branco"
+            item:
+              blank: "A lista de itens da receita não pode estar em branco"
+  will_paginate:
+    previous_label: "Anterior"
+    next_label: "Próximo"
+  datetime:
+    distance_in_words:
+      half_a_minute: "meio minuto"
+      less_than_x_seconds:
+        one: "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one: "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one: "menos de 1 minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one: "cerca de 1 hora"
+        other: "cerca de %{count} horas"
+      x_days:
+        one: "1 dia"
+        other: "%{count} dias"
+      about_x_months:
+        one: "cerca de 1 mês"
+        other: "cerca de %{count} meses"
+      about_x_years:
+        one: "cerca de 1 ano"
+        other: "cerca de %{count} anos"
+    prompts:
+      year: "Ano"
+      month: "Mês"
+      day: "Dia"
+      hour: "Hora"
+      minute: "Minuto"
+      second: "Segundo"
+    format:
+      default: "%d/%m/%Y %H:%M:%S"
+      short: "%d de %B, %H:%M"
+      long: "%A, %d de %B de %Y, %H:%M"
+      only_date: "%d/%m/%Y"
+      only_time: "%H:%M:%S"

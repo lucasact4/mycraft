@@ -1,0 +1,27 @@
+<% obj.each do |post| %>
+<div class="row">
+  <div class="col-md-2">
+    <section class="player_info center">
+      <%= gravatar_for(post.player, size: 120) %>
+    </section>
+  </div>
+  <div class="col-md-8 well">
+    <h4 class="font-title">Titúlo: <%= link_to post.name, post_path(post) %></h4>
+    <p class="font-title">Conteúdo: <span class="font-title3"><%= truncate(post.description, length: 150) %></span></p>
+    <% if post.items.any? %>
+      <p class="font-title2">Itens: <span class="itens-use"><%= render post.items %></span></p>
+    <% end %>
+    <p>
+    <span class="quiet"><small>Criado há <%= time_ago_in_words(post.created_at, include_seconds: true, locale: 'pt') %> por <%= post.player.playername.capitalize %> | <%= pluralize(post.comments.count, 'comentário') %></small></span>
+    </p>
+    <% if logged_in? && (current_player == post.player || current_player.admin?) %>
+      <div class="post-actions post-actions-itens">
+        <%= link_to "Editar", edit_post_path(post), class: "btn btn-xs btn-warning" %>
+        <%= link_to "Excluir", post_path(post), method: :delete,
+          data: { confirm: "Tem certeza de que deseja excluir esta postagem?" },
+          class: "btn btn-xs btn-danger" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

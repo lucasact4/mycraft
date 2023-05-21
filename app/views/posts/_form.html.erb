@@ -1,0 +1,41 @@
+<%= render 'shared/errors', obj1: @post, obj2: @errors, obj3: @count, obj4: @error %>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for(@post, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :name, "Título do post"%>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :name, class: "form-control", placeholder: "Digite aqui o nome da postagem...", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :description, "Descripção do post" %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Digite aqui o que você deseja dizer..." %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="control-label-check col-md-offset-2 col-md-8">
+            <%= f.collection_check_boxes :item_ids, Item.all, :id, :name do |cb| %>
+              <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <%= f.submit(@post.new_record? ? "Criar postagem" : "Editar postagem", class: "nav-butt") %>
+        </div>
+      </div>
+    <% end %>
+    <div class="center butt-return">
+      <%= link_to "Cancelar solicitação e retornar à listagem de postagens", posts_path %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<%= render 'shared/errors', obj1: @player, obj2: @errors, obj3: @count, obj4: @error %>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for(@player, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :playername, "Seu nome" %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :playername, class: "form-control", placeholder: "Digite seu nome da vida real...", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :playername, "Seu nickname" %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :playername, class: "form-control", placeholder: "Digite seu nick do jogo...", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :email, "Seu email" %>
+        </div>
+        <div class="col-md-8">
+          <%= f.email_field :email, class: "form-control", placeholder: "Digite seu email..." %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :password, "Sua senha" %>
+        </div>
+        <div class="col-md-8">
+          <%= f.password_field :password, class: "form-control", placeholder: "Digite sua senha..." %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :password_confirmation, "Confirme sua senha" %>
+        </div>
+        <div class="col-md-8">
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Digite a senha novamente..." %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <%= f.submit(@player.new_record? ? "Criar conta" : "Atualizar conta",
+            class: "nav-butt") %>
+        </div>
+      </div>
+    <% end %>
+    <div class="center butt-return">
+      <%= link_to "Cancelar solicitação e retornar à listagem de postagens", posts_path %>
+    </div>
+  </div>
+</div>

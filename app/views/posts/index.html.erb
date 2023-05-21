@@ -1,0 +1,13 @@
+<div class="background">
+  <div class="inner-div">
+    <%= render 'shared/page_title', title: "Mostrando todas as postagens" %>
+    
+    <div align="center">
+      <%= will_paginate @posts, class: 'pagination' %>
+    </div>
+    <%= render 'post', obj: @posts %>
+    <div align="center">
+      <%= will_paginate %>
+  </div>
+  </div>
+</div>

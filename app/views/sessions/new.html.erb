@@ -1,0 +1,32 @@
+<div class="background">
+  <div class="inner-div">
+    <%= render 'shared/page_title', title: "Conecte-se" %>
+    
+    <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :email, "Seu email" %>
+        </div>
+        <div class="col-md-8">
+          <%= f.email_field :email, class: "form-control", placeholder: "Digite seu email..." %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :password, "Sua senha" %>
+        </div>
+        <div class="col-md-8">
+          <%= f.password_field :password, class: "form-control", placeholder: "Digite sua senha..." %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <%= f.submit "Logar", class: "nav-butt" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="center butt-return">
+      <%= link_to "Não tem uma conta? Inscreva-se agora!", signup_path %>
+    </div>
+  </div>
+</div>
