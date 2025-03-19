@@ -1,0 +1,856 @@
+.grass-container {
+  z-index: 20;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .layer-1 {
+    z-index: 19;
+    position: absolute;
+    bottom: 96px;
+    left: 96px;
+    .steve {
+      position: absolute;
+      background-image: url('steve-skin.png');
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+      background-size: 48px 96px;
+      width: 240px;
+      height: 336px;
+      left: 44px;
+      top: 240px;
+    }
+    .crafting-table {
+      position: absolute;
+      background-image: url('BlockSprite_crafting-table.png');
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+      background-size: 48px 48px;
+      width: 48px;
+      height: 48px;
+      left: 192px;
+      top: 288px;
+    }
+    .tree {
+      position: relative;
+      width: 240px;
+      height: 336px;
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+      div {
+        position: absolute;
+        background-repeat: repeat;
+        background-size: 48px 48px;
+        image-rendering: pixelated;
+        left: 184px;
+      }
+      .item-1 {
+        width: 144px;
+        height: 96px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url('BlockSprite_oak-leaves.png');
+        z-index: 5;
+      }
+      .item-2 {
+        width: 240px;
+        height: 96px;
+        top: 96px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url('BlockSprite_oak-leaves.png');
+        z-index: 5;
+      }
+      .item-3 {
+        width: 48px;
+        height: 144px;
+        top: 48px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url('BlockSprite_oak-leaves.png');
+        z-index: 5;
+        filter: drop-shadow(3px 4px 3px rgba(0, 0, 0, 0.6));
+        z-index: 4;
+      }
+      .item-4 {
+        width: 48px;
+        height: 288px;
+        top: 48px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url('BlockSprite_oak-log.png');
+      }
+    }
+  }
+  .layer-2 {
+    display: flex;
+    position: absolute;
+    bottom: 350px;
+    left: 300px;
+    .minecraft-cloud {
+      position: relative;
+      width: 160px;
+      height: 96px;
+      div {
+        position: absolute;
+        background-repeat: repeat;
+        background-size: 16px 16px;
+        image-rendering: pixelated;
+        .white-1 {
+          width: 32px;
+          height: 16px;
+          background-color: #FFFFFF;
+        }
+        .white-2 {
+          width: 16px;
+          height: 16px;
+          bottom: 0;
+          background-color: #FFFFFF;
+        }
+        .white-3 {
+          width: 96px;
+          height: 16px;
+          background-color: #FFFFFF;
+        }
+        .white-4 {
+          width: 128px;
+          height: 16px;
+          background-color: #FFFFFF;
+        }
+      }
+      .cloud-1 {
+        left: 10px;
+        bottom: 128px;
+        .piece-1 {
+          width: 48px;
+          height: 32px;
+          bottom: 0;
+          left: 64px;
+          background-color: #E6EDFF;
+        }
+        .piece-2 {
+          width: 112px;
+          height: 32px;
+          bottom: -32px;
+          left: 32px;
+          background-color: #E6EDFF;
+        }
+        .piece-3 {
+          width: 160px;
+          height: 32px;
+          bottom: -64px;
+          background-color: #E6EDFF;
+        }
+      }
+      .cloud-2 {
+        left: 564px;
+        bottom: 16px;
+        .piece-1 {
+          width: 112px;
+          height: 32px;
+          bottom: 0;
+          left: 32px;
+          background-color: #E6EDFF;
+        }
+        .piece-2 {
+          width: 160px;
+          height: 32px;
+          bottom: -32px;
+          background-color: #E6EDFF;
+        }
+      }
+      .cloud-3 {
+        left: 975px;
+        bottom: 128px;
+        .piece-1 {
+          width: 160px;
+          height: 32px;
+          bottom: 0;
+          background-color: #E6EDFF;
+        }
+        .piece-2 {
+          width: 64px;
+          height: 32px;
+          bottom: -32px;
+          left: 64px;
+          background-color: #E6EDFF;
+        }
+      }
+    }
+  }
+  .layer-3 {
+    display: flex;
+    position: absolute;
+    bottom: 240px;
+    div {
+      position: absolute;
+      background-repeat: repeat;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+    }
+    .item-1 {
+      background-image: asset-url('BlockSprite_cobblestone.webp');
+      width: 48px;
+      height: 144px;
+      top: -96px;
+      left: 1104px;
+      .in {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: rotate(90deg);
+        filter: drop-shadow(4px -1px 2px rgba(0, 0, 0, 0.6));
+      }
+      .out {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: scaleX(-1);
+        left: -48px;
+      }
+    }
+    .item-2 {
+      z-index: 16;
+      background-image: asset-url('BlockSprite_oak-planks.webp');
+      width: 48px;
+      height: 192px;
+      top: -144px;
+      left: 1152px;
+      .in {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: rotate(90deg);
+        filter: drop-shadow(4px -1px 2px rgba(0, 0, 0, 0.6));
+      }
+      .out {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: scaleX(-1);
+        left: -48px;
+      }
+    }
+    .item-3 {
+      z-index: 16;
+      background-image: asset-url('BlockSprite_oak-planks.webp');
+      width: 48px;
+      height: 144px;
+      top: -192px;
+      left: 1200px;
+      .block {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-bricks.webp');
+        width: 48px;
+        height: 48px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+      }
+      .out-1 {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: scaleX(-1);
+        left: -48px;
+      }
+      .out-2 {
+        z-index: 20;
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        left: 48px;
+        filter: drop-shadow(4px 2px 2px rgba(0, 0, 0, 0.6));
+      }
+    }
+    .item-4 {
+      z-index: 15;
+      background-image: asset-url('BlockSprite_oak-door.webp');
+      background-repeat: no-repeat;
+      background-size: 48px 96px;
+      width: 48px;
+      height: 96px;
+      top: -48px;
+      left: 1200px;
+      box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.75);
+      filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5));
+    }
+    .item-5 {
+      z-index: 16;
+      background-image: asset-url('BlockSprite_oak-planks.webp');
+      width: 48px;
+      height: 192px;
+      top: -144px;
+      left: 1248px;
+      .in {
+        z-index: 21;
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: rotate(90deg) scaleY(-1);
+        filter: drop-shadow(4px -1px 2px rgba(0, 0, 0, 0.6));
+      }
+      .out {
+        z-index: 20;
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        left: 48px;
+        filter: drop-shadow(4px -1px 2px rgba(0, 0, 0, 0.6));
+      }
+    }
+    .item-6 {
+      background-image: asset-url('BlockSprite_oak-planks.webp');
+      width: 48px;
+      height: 48px;
+      top: -96px;
+      left: 1296px;
+      .in {
+        z-index: 22;
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: rotate(90deg) scaleY(-1);
+        filter: drop-shadow(1px -3px 2px rgba(0, 0, 0, 0.6));
+      }
+      .out {
+        z-index: 20;
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        left: 48px;
+        filter: drop-shadow(-4px -2px 1px rgba(0, 0, 0, 0.4));
+      }
+    }
+    .item-7 {
+      z-index: 21;
+      background-image: asset-url('BlockSprite_glass.png');
+      width: 96px;
+      height: 48px;
+      top: -48px;
+      left: 1296px;
+    }
+    .item-8 {
+      background-image: asset-url('BlockSprite_oak-planks.webp');
+      width: 96px;
+      height: 48px;
+      left: 1296px;
+    }
+    .item-9 {
+      z-index: 11;
+      background-image: asset-url('BlockSprite_stone-bricks.webp');
+      width: 240px;
+      height: 48px;
+      top: -192px;
+      left: 1248px;
+      .block {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-bricks.webp');
+        width: 48px;
+        height: 48px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+        left: 240px;
+      }
+      .out-1 {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: scaleX(-1);
+        left: 192px;
+        filter: drop-shadow(4px 2px 2px rgba(0, 0, 0, 0.6));
+      }
+      .out-2 {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        left: 288px;
+      }
+    }
+    .item-10 {
+      z-index: 11;
+      background-image: asset-url('BlockSprite_stone-bricks.webp');
+      width: 144px;
+      height: 48px;
+      top: -144px;
+      left: 1296px;
+      .in-1 {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: rotate(90deg);
+        left: 144px;
+        filter: drop-shadow(4px -1px 2px rgba(0, 0, 0, 0.6));
+      }
+      .out-1 {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: scaleX(-1);
+        left: 96px;
+        filter: drop-shadow(4px -1px 2px rgba(0, 0, 0, 0.6));
+      }
+      .in-2 {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        left: 288px;
+      }
+      .out-2 {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        left: 240px;
+        transform: rotate(90deg) scaleY(-1);
+        filter: drop-shadow(4px -1px 2px rgba(0, 0, 0, 0.6));
+      }
+    }
+    .item-11 {
+      background-image: asset-url('BlockSprite_stone-bricks.webp');
+      width: 48px;
+      height: 48px;
+      top: -96px;
+      left: 1344px;
+    }
+    .item-12 {
+      background-image: asset-url('BlockSprite_cobblestone.webp');
+      width: 48px;
+      height: 144px;
+      top: -96px;
+      left: 1392px;
+      .in {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: rotate(90deg);
+        filter: drop-shadow(4px -1px 2px rgba(0, 0, 0, 0.6));
+      }
+      .out {
+        z-index: 23;
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: scaleX(-1);
+        left: -48px;
+        filter: drop-shadow(3px -1px 2px rgba(0, 0, 0, 0.6));
+      }
+    }
+    .item-13 {
+      background-image: asset-url('BlockSprite_cobblestone.webp');
+      width: 48px;
+      height: 144px;
+      top: -96px;
+      left: 1584px;
+      .in {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        transform: rotate(90deg) scaleY(-1);
+        filter: drop-shadow(4px -1px 2px rgba(0, 0, 0, 0.6));
+      }
+      .out {
+        position: absolute;
+        background-image: asset-url('BlockSprite_stone-brick-stairs.webp');
+        width: 48px;
+        height: 48px;
+        left: 48px;
+      }
+    }
+    .item-14 {
+      background-size: 40px 40px;
+      z-index: 10;
+      background-image: asset-url('BlockSprite_oak-planks.webp');
+      width: 144px;
+      height: 192px;
+      top: -144px;
+      left: 1440px;
+      box-shadow:
+        inset 8px 0 8px -4px rgba(0, 0, 0, 0.75),
+        inset -8px 0 8px -4px rgba(0, 0, 0, 0.75),
+        inset 0 -8px 8px -6px rgba(0, 0, 0, 0.75);
+    }
+    .item-15 {
+      background-size: 40px 40px;
+      z-index: 20;
+      background-image: asset-url('BlockSprite_oak-planks.webp');
+      width: 96px;
+      height: 48px;
+      top: -48px;
+      left: 1296px;
+      box-shadow: inset 0 0 8px 0 rgba(0, 0, 0, 0.75);
+    }
+    .item-16 {
+      z-index: 14;
+      background-size: 40px 40px;
+      background-image: asset-url('BlockSprite_oak-planks.webp');
+      background-repeat: no-repeat;
+      width: 48px;
+      height: 96px;
+      top: -48px;
+      left: 1200px;
+      box-shadow: inset 0 0 8px 0 rgba(0, 0, 0, 0.75);
+    }
+    .item-17 {
+      z-index: 22;
+      background-image: asset-url('BlockSprite_chest.png');
+      width: 48px;
+      height: 48px;
+      left: 1440px;
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+    }
+    .item-18 {
+      z-index: 22;
+      background-image: asset-url('BlockSprite_furnace.webp');
+      width: 48px;
+      height: 48px;
+      left: 1488px;
+      box-shadow: 0 -4px 12px -4px rgba(0, 0, 0, 0.75);
+    }
+    .item-19 {
+      z-index: 22;
+      background-image: asset-url('BlockSprite_barrel.webp');
+      width: 48px;
+      height: 48px;
+      left: 1536px;
+      box-shadow: 0 -4px 12px -4px rgba(0, 0, 0, 0.75);
+    }
+  }
+  .layer-4 {
+    display: flex;
+    position: absolute;
+    bottom: 192px;
+    div {
+      position: absolute;
+      background-repeat: repeat;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+    }
+    .item-1 {
+      background-image: url('BlockSprite_obsidian.webp');
+      width: 192px;
+      height: 48px;
+      left: 672px;
+      transform: translateX(-50%);
+    }
+    .item-2 {
+      background-image: url('BlockSprite_obsidian.webp');
+      width: 192px;
+      height: 48px;
+      top: -192px;
+      left: 672px;
+      transform: translateX(-50%);
+    }
+    .item-3 {
+      background-image: url('BlockSprite_obsidian.webp');
+      width: 48px;
+      height: 144px;
+      top: -144px;
+      left: 600px;
+      transform: translateX(-50%);
+    }
+    .item-4 {
+      background-image: url('BlockSprite_obsidian.webp');
+      width: 48px;
+      height: 144px;
+      top: -144px;
+      left: 744px;
+      transform: translateX(-50%);
+    }
+    .item-5 {
+      background-image: url('nether-portal.gif');
+      width: 96px;
+      height: 144px;
+      top: -144px;
+      left: 672px;
+      transform: translateX(-50%);
+    }
+    .item-6 {
+      background-image: asset-url('BlockSprite_nether-brick-stairs.webp');
+      height: 48px;
+      width: 48px;
+      left: 768px;
+    }
+    .item-7 {
+      background-image: asset-url('grass-large.png');
+      height: 48px;
+      width: 48px;
+      left: 528px;
+    }
+    .item-8 {
+      background-image: asset-url('BlockSprite_short-grass.webp');
+      height: 48px;
+      width: 48px;
+      left: 48px;
+    }
+    .item-9 {
+      background-image: asset-url('BlockSprite_poppy.webp');
+      height: 30px;
+      width: 30px;
+      background-size: 30px 30px;
+      background-position: center bottom;
+      top: 18px;
+      left: 106px;
+    }
+  }
+  .layer-5 {
+    display: flex;
+    position: absolute;
+    bottom: 144px;
+    .item-1 {
+      position: relative;
+      background-image: asset-url('cow.png');
+      background-repeat: repeat-x;
+      background-size: 69px 69px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 69px;
+      width: 69px;
+      left: 444px;
+    }
+  }
+  .layer-6 {
+    display: flex;
+    position: absolute;
+    bottom: 144px;
+    .item-1 {
+      position: relative;
+      background-image: asset-url('LegacyBlock_grass.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 96px;
+      left: 1008px;
+      box-shadow: inset -8px -8px 4px -4px rgba(0, 0, 0, 0.5);
+    }
+    .item-2 {
+      position: relative;
+      background-image: asset-url('BlockSprite_ladder.webp');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 48px;
+      left: 960px;
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+    }
+    .item-3 {
+      z-index: 16;
+      position: relative;
+      background-image: asset-url('LegacyBlock_grass.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 288px;
+      left: 960px;
+      box-shadow: 0 -4px 12px -4px rgba(0, 0, 0, 0.75);
+    }
+    .item-4 {
+      position: relative;
+      background-image: asset-url('BlockSprite_cobblestone.webp');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 240px;
+      left: 960px;
+    }
+    .item-5 {
+      position: relative;
+      background-image: asset-url('LegacyBlock_grass.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 288px;
+      left: 960px;
+    }
+  }
+  .layer-7 {
+    display: flex;
+    position: absolute;
+    bottom: 96px;
+    .item-1 {
+      position: relative;
+      background-image: asset-url('LegacyBlock_grass.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 48px;
+    }
+    .item-2 {
+      position: relative;
+      z-index: 18;
+      background-image: asset-url('LegacyBlock_grass.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 96px;
+      box-shadow: inset 8px -8px 4px -4px rgba(0, 0, 0, 0.5);
+    }
+    .item-3 {
+      position: relative;
+      background-image: asset-url('LegacyBlock_grass.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 96px;
+      left: 240px;
+      box-shadow: inset -8px -8px 4px -4px rgba(0, 0, 0, 0.5);
+    }
+    .item-4 {
+      position: relative;
+      background-image: asset-url('LegacyBlock_grass.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 384px;
+      left: 240px;
+    }
+    .item-5 {
+      z-index: 19;
+      position: relative;
+      background-image: asset-url('Water.webp');
+      background-repeat: repeat-x;
+      background-size: 42px 42px;
+      background-position: center bottom;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 192px;
+      left: 240px;
+    }
+    .item-6 {
+      z-index: 18;
+      position: relative;
+      background-image: asset-url('BlockSprite_cobblestone.webp');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 48px;
+      left: 144px;
+      box-shadow: inset -8px -4px 4px -4px rgba(0, 0, 0, 0.5);
+    }
+    .item-7 {
+      z-index: 18;
+      position: relative;
+      background-image: asset-url('LegacyBlock_grass.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 48px;
+      left: 144px;
+      box-shadow: inset -8px -4px 4px -4px rgba(0, 0, 0, 0.5);
+    }
+    .item-8 {
+      position: relative;
+      background-image: asset-url('BlockSprite_dirt.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 912px;
+      left: 144px;
+    }
+  }
+  .layer-8 {
+    display: flex;
+    position: absolute;
+    bottom: 48px;
+    .item-1 {
+      position: relative;
+      background-image: asset-url('BlockSprite_dirt.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 48px;
+    }
+    .item-2 {
+      position: relative;
+      background-image: asset-url('LegacyBlock_grass.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 432px;
+    }
+    .item-3 {
+      position: relative;
+      background-image: asset-url('BlockSprite_dirt.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 432px;
+    }
+    .item-4 {
+      position: relative;
+      background-image: asset-url('Water.webp');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 48px;
+    }
+    .item-5 {
+      position: relative;
+      background-image: asset-url('BlockSprite_dirt.png');
+      background-repeat: repeat-x;
+      background-size: 48px 48px;
+      background-position: center top;
+      image-rendering: pixelated;
+      height: 48px;
+      width: 1104px;
+    }
+  }
+  .layer-9 {
+    position: relative;
+    background-image: asset-url('BlockSprite_dirt.png');
+    background-repeat: repeat-x;
+    background-size: 48px 48px;
+    background-position: center top;
+    image-rendering: pixelated;
+    height: 48px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,41 @@
+.background-main {
+  background-image: asset-url('BlockSprite_stone.png');
+  background-repeat: repeat;
+  background-size: 48px 48px;
+  background-position: center top;
+  image-rendering: pixelated;
+  padding: 2em 5em;
+}
+
+.jumbotron {
+  border-radius: 6px;
+  background-image: asset-url('wall.png');
+  background-size: cover;
+  width: 800px;
+  padding: 60px;
+  box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.5);
+  h1 {
+      font: 30pt 'Minecrafter', sans-serif;
+      background-color: rgba(255, 255, 255, 0.75);
+      color: rgba(0, 0, 0, 0.75);
+      padding: 10px 0 10px 0;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.2);
+  }
+  p {
+      margin: auto;
+      border-radius: 10px;
+      font: 10pt 'Minecraftia', sans-serif;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: rgba(0, 0, 0, 0.75);
+      padding: 10px 0 10px 0;
+      width: 60%;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.2);
+      .mc-button {
+          max-width: 500px;
+      }
+  }
+}

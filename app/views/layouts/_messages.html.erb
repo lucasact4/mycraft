@@ -1,12 +1,12 @@
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
+<div class="row pb-4">
+  <div class="col flash-messages">
     <% flash.each do |name, msg| %>
-      <div class="alert alert-<%= name %> <%= name == "success" ? "alert-success" : "alert-danger" %> alert-dismissible">
+      <div class="d-flex justify-content-between alert alert-mc alert-<%= name %>-mc <%= name == "success" ? "alert-success" : "alert-danger" %>-mc alert-dismissible-mc">
         <%= name == "success" ? image_tag("success.png", class: "alert-img") : image_tag("error.png", class: "alert-img") %>
+        <div class="msg"><%= msg %></div>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <div aria-hidden="true">&times;</div>
         </button>
-        <%= msg %>
       </div>
     <% end %>
   </div>

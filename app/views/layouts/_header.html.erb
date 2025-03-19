@@ -1,0 +1,254 @@
+<div class="d-flex justify-content-center w-100 background-header">
+  <div class="landing-page_general-shadow">
+      <header class="landing-page_header-background d-flex justify-content-center" id="home">
+          <div class="landing-page_header-nav-container w-100 landing-page_width-limit">
+            <div class="landing-page_header-shadow d-flex justify-content-center">
+                <div>
+                    <nav class="landing-page_header-nav d-flex justify-content-around align-items-center mx-3">
+                        <span>
+                          <%= link_to root_path, class: "logo-mycraft" do %>
+                            <%= image_tag "MYCRAFT-17-03-2025.png", alt: "MyCraft", class: "logo-image" %>
+                          <% end %>
+                        </span>
+                        <div class="collapse navbar-collapse d-flex justify-content-end">
+                          <div class="w-100">
+                            <label class="d-flex justify-content-around align-items-center">
+                              <input
+                                type="checkbox"
+                                id="menu-toggle"
+                                class="landing-page_checkbox"
+                              >
+                              <span class="menu d-flex align-items-center justify-content-center">
+                                <span class="hamburger">
+                                </span>
+                              </span>
+                              <span class="navbar-nav font-montserrat-700 landing-page_header-nav-menu w-100 d-flex justify-content-around flex-row align-items-center px-5">
+                                <div class="dropdown nav-button-mc">
+                                  <div class="button-mc-container">
+                                    <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <span class="imgconfig imgpickaxe title"></span>
+                                        <span class="minecraft-font">Itens</span>
+                                    </div>
+                                    <ul class="dropdown-menu">
+                                      <li><%= link_to "Todos Itens", items_path %></li>
+                                      <li role="separator" class="divider"></li>
+                                      <% Item.all.each do |item| %>
+                                        <li><%= link_to item.name.capitalize, item_path(item) %></li>
+                                      <% end %>
+                                      <% if logged_in? && current_player.admin? %>
+                                        <li role="separator" class="divider"></li>
+                                        <li><%= link_to "Adicionar item", new_item_path %></li>
+                                      <% end %>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <%= link_to players_path, class: "nav-button-mc" do %>
+                                  <div class="button-mc-container">
+                                    <span class="imgconfig imgsteve"></span>
+                                    <%= content_tag :span, "Jogadores", class: "minecraft-font" %>
+                                  </div>
+                                <% end %>
+                                <%= link_to players_path, class: "nav-button-mc" do %>
+                                  <div class="button-mc-container">
+                                    <span class="imgconfig imgposts"></span>
+                                    <%= content_tag :span, "Postagens", class: "minecraft-font" %>
+                                  </div>
+                                <% end %>
+                                <% if logged_in? %>
+                                  <div class="dropdown nav-button-mc">
+                                    <div class="button-mc-container">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="space"><span class="imgconfig imgcreeper"></span>Mais<span class="caret"></span></span></a>
+                                      <ul class="dropdown-menu">
+                                        <li><%= link_to "Criar novo post", new_post_path %></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">----</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="dropdown nav-button-mc">
+                                    <div class="button-mc-container">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="space"><%= current_player.playername.capitalize %> Perfil <%= "Admin" if current_player.admin? %><span class="caret"></span></span></a>
+                                      <ul class="dropdown-menu">
+                                        <li><%= link_to "Ver meu perfil", player_path(current_player) %></li>
+                                        <li><%= link_to "Editar meu perfil", edit_player_path(current_player) %></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><%= link_to "Sair", logout_path, method: :delete %></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <span class= "imgconfig2"><%= link_to gravatar_for(current_player, size: 45 ), player_path(current_player), class: "imgconfig3" %></span>
+                                <% else %>
+                                  <%= link_to login_path, class: "nav-button-mc" do %>
+                                    <div class="button-mc-container">
+                                      <span><i class="bi bi-box-arrow-in-right"></i></span>
+                                      <%= content_tag :span, "Entrar", class: "minecraft-font" %>
+                                    </div>
+                                  <% end %>
+                                  <%= link_to signup_path, class: "nav-button-mc" do %>
+                                    <div class="button-mc-container">
+                                      <span><i class="bi bi-person-plus"></i></span>
+                                      <%= content_tag :span, "Cadastrar", class: "minecraft-font" %>
+                                    </div>
+                                  <% end %>
+                                <% end %>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+          </div>
+          <div class="header-sun sun-y">
+          </div>
+          <div class="header-sun sun-x">
+          </div>
+          <div class="header-sun sun-xy">
+          </div>
+          <div class="grass-container d-flex flex-column justify-content-center">
+            <div class="layer-1">
+              <div class="steve"></div>
+              <div class="tree">
+                <div class="item-1"></div>
+                <div class="item-2"></div>
+                <div class="item-3"></div>
+                <div class="item-4"></div>
+              </div>
+              <div class="crafting-table"></div>
+            </div>
+            <div class="layer-2">
+              <div class="minecraft-cloud">
+                <div class="cloud-1">
+                  <div class="piece-1">
+                    <div class="white-1"></div>
+                    <div class="white-2"></div>
+                  </div>
+                  <div class="piece-2">
+                    <div class="white-1"></div>
+                    <div class="white-2"></div>
+                  </div>
+                  <div class="piece-3">
+                    <div class="white-1"></div>
+                    <div class="white-2"></div>
+                  </div>
+                </div>
+                <div class="cloud-2">
+                  <div class="piece-1">
+                    <div class="white-3"></div>
+                    <div class="white-2"></div>
+                  </div>
+                  <div class="piece-2">
+                    <div class="white-1"></div>
+                    <div class="white-2"></div>
+                  </div>
+                </div>
+                <div class="cloud-3">
+                  <div class="piece-1">
+                    <div class="white-4"></div>
+                    <div class="white-2"></div>
+                  </div>
+                  <div class="piece-2">
+                    <div class="white-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="layer-3">
+              <div class="item-1">
+                <div class="in"></div>
+                <div class="out"></div>
+              </div>
+              <div class="item-2">
+                <div class="in"></div>
+                <div class="out"></div>
+              </div>
+              <div class="item-3">
+                <div class="block"></div>
+                <div class="out-1"></div>
+                <div class="out-2"></div>
+              </div>
+              <div class="item-4"></div>
+              <div class="item-5">
+                <div class="in"></div>
+                <div class="out"></div>
+              </div>
+              <div class="item-6">
+                <div class="in"></div>
+                <div class="out"></div>
+              </div>
+              <div class="item-7"></div>
+              <div class="item-8"></div>
+              <div class="item-9">
+                <div class="block"></div>
+                <div class="out-1"></div>
+                <div class="out-2"></div>
+              </div>
+              <div class="item-10">
+                <div class="in-1"></div>
+                <div class="out-1"></div>
+                <div class="in-2"></div>
+                <div class="out-2"></div>
+              </div>
+              <div class="item-11">
+                <div class="in"></div>
+                <div class="out"></div>
+              </div>
+              <div class="item-12">
+                <div class="in"></div>
+                <div class="out"></div>
+              </div>
+              <div class="item-13">
+                <div class="in"></div>
+                <div class="out"></div>
+              </div>
+              <div class="item-14"></div>
+              <div class="item-15"></div>
+              <div class="item-16"></div>
+              <div class="item-17"></div>
+              <div class="item-18"></div>
+              <div class="item-19"></div>
+            </div>
+            <div class="layer-4">
+              <div class="item-1"></div>
+              <div class="item-2"></div>
+              <div class="item-3"></div>
+              <div class="item-4"></div>
+              <div class="item-5"></div>
+              <div class="item-6"></div>
+              <div class="item-7"></div>
+              <div class="item-8"></div>
+              <div class="item-9"></div>
+            </div>
+            <div class="layer-5">
+              <div class="item-1"></div>
+            </div>
+            <div class="layer-6">
+              <div class="item-1"></div>
+              <div class="item-2"></div>
+              <div class="item-3"></div>
+              <div class="item-4"></div>
+              <div class="item-5"></div>
+            </div>
+            <div class="layer-7">
+              <div class="item-1"></div>
+              <div class="item-2"></div>
+              <div class="item-3"></div>
+              <div class="item-4"></div>
+              <div class="item-5"></div>
+              <div class="item-6"></div>
+              <div class="item-7"></div>
+              <div class="item-8"></div>
+            </div>
+            <div class="layer-8">
+              <div class="item-1"></div>
+              <div class="item-2"></div>
+              <div class="item-3"></div>
+              <div class="item-4"></div>
+              <div class="item-5"></div>
+            </div>
+            <div class="layer-9">
+            </div>
+          </div>
+      </header>
+  </div>
+</div>

@@ -1,0 +1,162 @@
+/* Header & Nav Styles */
+.landing-page_header-nav-container {
+  position: fixed;
+  top: 0;
+  z-index: 1500;
+  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.6);
+  background-image: asset-url('BlockSprite_jungle-leaves.png');
+  background-repeat: repeat-x;
+  background-size: auto 48px;
+  background-position: center top;
+  height: 48px;
+  image-rendering: pixelated;
+  filter: drop-shadow(1px -1px 0.5px rgba(0, 0, 0, 0.4));
+}
+.landing-page_header-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  .landing-page_header-shadow {
+      width: 100%;
+      .landing-page_header-nav {
+          height: 48px;
+          .landing-page_header-nav-img {
+              height: 100px;
+              filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
+              transition: all 0.3s ease-in-out;
+              cursor: pointer;
+              &:hover {
+                  transform: scale(1.2);
+              }
+          }
+          .landing-page_header-nav-menu {
+                a {
+                    text-decoration: none;
+                }
+                .dropdown-menu {
+                    position: absolute;
+                }
+            }
+      }
+  }
+}
+
+.background-header {
+    background-image: linear-gradient(to top, #F8FCFA, #7FA9FF);
+    position: relative;
+    .header-sun {
+        position: absolute;
+        background-color: white;
+        background-size: contain;
+        image-rendering: pixelated;
+        top: 80px;
+        left: 120px;
+        width: 64px;
+        height: 64px;
+        transition: top 1s ease-in-out, left 1s ease-in-out;
+        z-index: 1;
+    }
+    .sun-y {
+        box-shadow: 
+          0 16px 0 -8px var(--sun-light-color),
+          0 -16px 0 -8px var(--sun-light-color),
+          0 16px 0 0px var(--sun-light-color),
+          0 -16px 0 0px var(--sun-light-color),
+          0 24px 0 0px var(--sun-light-color),
+          0 -24px 0 0px var(--sun-light-color),
+          0 24px 0 8px var(--sun-light-color),
+          0 -24px 0 8px var(--sun-light-color),
+          0 32px 0 8px var(--sun-light-color),
+          0 -32px 0 8px var(--sun-light-color),
+          0 32px 0 16px var(--sun-light-color),
+          0 -32px 0 16px var(--sun-light-color),
+          0 40px 0 16px var(--sun-light-color),
+          0 -40px 0 16px var(--sun-light-color),
+          0 40px 0 24px var(--sun-light-color),
+          0 -40px 0 24px var(--sun-light-color),
+    }
+    .sun-x {
+        box-shadow: 
+        16px 0 0 -8px var(--sun-light-color),
+        -16px 0 0 -8px var(--sun-light-color),
+        16px 0 0 0px var(--sun-light-color),
+        -16px 0 0 0px var(--sun-light-color),
+        24px 0 0 0px var(--sun-light-color),
+        -24px 0 0 0px var(--sun-light-color),
+        24px 0 0 8px var(--sun-light-color),
+        -24px 0 0 8px var(--sun-light-color),
+        32px 0 0 8px var(--sun-light-color),
+        -32px 0 0 8px var(--sun-light-color),
+        32px 0 0 16px var(--sun-light-color),
+        -32px 0 0 16px var(--sun-light-color),
+        40px 0 0 16px var(--sun-light-color),
+        -40px 0 0 16px var(--sun-light-color),
+        40px 0 0 24px var(--sun-light-color),
+        -40px 0 0 24px var(--sun-light-color),
+    }
+    .sun-xy {
+        box-shadow: 
+          0 0 0 8px var(--sun-light-color),
+          0 0 0 16px var(--sun-light-color),
+          0 0 0 24px var(--sun-light-color),
+          0 0 0 32px var(--sun-light-color),
+          0 0 0 40px var(--sun-light-color),
+    }
+}
+
+.nav-button-mc {
+    margin: auto 4px !important;
+    background: #999 url('https://i.ibb.co/rb2TWXL/bgbtn.png') center / cover;
+    text-align: center;
+    box-shadow: inset -2px -4px #0006, inset 2px 2px #FFF7;
+    position: relative;
+    top: 3px;
+	border: 1px solid #000;
+    .button-mc-container {
+        padding: 0 10px 6px 10px;
+		width: 100%; height: 100%;
+        span {
+          font: 12pt 'Minecraftia', sans-serif;
+          color: #DDD;
+          text-shadow: 2px 2px #000A;
+          i {
+            margin-right: 4px;
+            &::before {
+                font-size: 14pt;
+            }
+          }
+        }
+        &:hover {
+            background: rgba(100, 100, 255, .45) center / cover;
+            span {
+                color: #FFFFA0;
+                text-shadow: 2px 2px #202013CC;
+            }
+        }
+    }
+	&:active {
+		box-shadow: inset -2px -4px #0004, inset 2px 2px #FFF5;
+	}
+}
+
+
+.logo-mycraft {
+    display: block;
+    position: relative;
+    top: -2px;
+    .logo-image {
+        filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.6));
+        height: 48px;
+        transition: filter 1s ease-in-out;
+
+        &:hover {
+            filter: drop-shadow(-2px 4px 0px rgba(0, 0, 0, 0.6));
+        }
+        &:hover ~ .header-sun {
+            top: 120px !important;  /* Nova posição do sol */
+            left: 100px; /* Nova posição do sol */
+        }
+    }
+}
