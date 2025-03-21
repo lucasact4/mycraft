@@ -10,5 +10,6 @@ class RenameChefsToPlayers < ActiveRecord::Migration[7.0]
     rename_column :posts, :chef_id, :player_id
     rename_column :comments, :chef_id, :player_id
     rename_column :comments, :recipe_id, :post_id
+    add_column :players, :name, :string
   end
 end

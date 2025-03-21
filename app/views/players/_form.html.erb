@@ -5,10 +5,10 @@
     <%= form_for(@player, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class="form-group">
         <div class="control-label col-md-2">
-          <%= f.label :playername, "Seu nome" %>
+          <%= f.label :name, "Seu nome" %>
         </div>
         <div class="col-md-8">
-          <%= f.text_field :playername, class: "form-control", placeholder: "Digite seu nome da vida real...", autofocus: true %>
+          <%= f.text_field :name, class: "form-control", placeholder: "Digite seu nome da vida real...", autofocus: true %>
         </div>
       </div>
       <div class="form-group">

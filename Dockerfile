@@ -1,6 +1,8 @@
 # Use a imagem oficial do Ruby como base
 FROM ruby:3.1.4
 
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+
 # Defina o diretório de trabalho dentro do contêiner
 WORKDIR /app
 

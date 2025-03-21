@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_13_050817) do
+ActiveRecord::Schema[7.0].define(version: 2025_03_21_033840) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.text "description"
     t.integer "player_id"
@@ -30,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_050817) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.string "name"
   end
 
   create_table "post_items", force: :cascade do |t|

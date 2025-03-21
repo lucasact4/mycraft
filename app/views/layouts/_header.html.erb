@@ -74,8 +74,8 @@
                                       <div class="nav-button-mc">
                                         <div href="#" class="dropdown-toggle button-mc-container" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                           <span class="title"><%= current_player.playername %></span>
-                                          <span>Perfil</span>
-                                          <%= "Admin" if current_player.admin? %>
+                                          <span class="ms-2">- Perfil</span>
+                                          <span class="ms-2"><%= "Admin" if current_player.admin? %></span>
                                         </div>
                                         <ul class="dropdown-menu">
                                           <li><%= link_to "Ver meu perfil", player_path(current_player) %></li>
