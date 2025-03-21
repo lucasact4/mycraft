@@ -21,17 +21,17 @@
   .landing-page_header-shadow {
       width: 100%;
       .landing-page_header-nav {
-          height: 48px;
-          .landing-page_header-nav-img {
-              height: 100px;
-              filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
-              transition: all 0.3s ease-in-out;
-              cursor: pointer;
-              &:hover {
-                  transform: scale(1.2);
-              }
-          }
-          .landing-page_header-nav-menu {
+            height: 48px;
+            .landing-page_header-nav-img {
+                height: 100px;
+                filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+            .landing-page_header-nav-menu {
                 a {
                     text-decoration: none;
                 }
@@ -39,8 +39,16 @@
                     position: absolute;
                 }
             }
-      }
-  }
+        }
+    }
+}
+
+.dropdown-toggle {
+    &:after {
+        border-top: .5em solid white !important;
+        border-right: .5em solid transparent !important;
+        border-left: .5em solid transparent !important;
+    }
 }
 
 .background-header {
@@ -106,17 +114,28 @@
     }
 }
 
+.items-menu {
+    max-height: 48px;
+}
+
 .nav-button-mc {
-    margin: auto 4px !important;
     background: #999 url('https://i.ibb.co/rb2TWXL/bgbtn.png') center / cover;
     text-align: center;
     box-shadow: inset -2px -4px #0006, inset 2px 2px #FFF7;
     position: relative;
     top: 3px;
 	border: 1px solid #000;
+    height: 32px;
+    .imgconfig {
+      display: inline-block;
+      background-size: contain;
+      height: 20px;
+      width: 20px;
+      margin-bottom: -4px;
+      margin-right: 4px;
+    }
     .button-mc-container {
         padding: 0 10px 6px 10px;
-		width: 100%; height: 100%;
         span {
           font: 12pt 'Minecraftia', sans-serif;
           color: #DDD;

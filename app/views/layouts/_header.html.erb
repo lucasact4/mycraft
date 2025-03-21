@@ -2,8 +2,7 @@
   <div class="landing-page_general-shadow">
       <header class="landing-page_header-background d-flex justify-content-center" id="home">
           <div class="landing-page_header-nav-container w-100 landing-page_width-limit">
-            <div class="landing-page_header-shadow d-flex justify-content-center">
-                <div>
+            <div class="landing-page_header-shadow">
                     <nav class="landing-page_header-nav d-flex justify-content-around align-items-center mx-3">
                         <span>
                           <%= link_to root_path, class: "logo-mycraft" do %>
@@ -22,81 +21,95 @@
                                 <span class="hamburger">
                                 </span>
                               </span>
-                              <span class="navbar-nav font-montserrat-700 landing-page_header-nav-menu w-100 d-flex justify-content-around flex-row align-items-center px-5">
-                                <div class="dropdown nav-button-mc">
-                                  <div class="button-mc-container">
-                                    <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <span class="imgconfig imgpickaxe title"></span>
-                                        <span class="minecraft-font">Itens</span>
-                                    </div>
-                                    <ul class="dropdown-menu">
-                                      <li><%= link_to "Todos Itens", items_path %></li>
-                                      <li role="separator" class="divider"></li>
-                                      <% Item.all.each do |item| %>
-                                        <li><%= link_to item.name.capitalize, item_path(item) %></li>
-                                      <% end %>
-                                      <% if logged_in? && current_player.admin? %>
+                              <span class="navbar-nav font-montserrat-700 landing-page_header-nav-menu w-100 d-flex justify-content-between flex-row align-items-center px-5">
+                                <div class="d-flex justify-content-around items-menu items-menu-1">
+                                  <div class="dropdown mx-2 my-auto">
+                                    <div class="nav-button-mc">
+                                      <div class="dropdown-toggle button-mc-container" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                          <span class="imgconfig imgpickaxe title"></span>
+                                          <span class="minecraft-font">Itens</span>
+                                      </div>
+                                      <ul class="dropdown-menu">
+                                        <li><%= link_to "Todos Itens", items_path %></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><%= link_to "Adicionar item", new_item_path %></li>
-                                      <% end %>
-                                    </ul>
+                                        <% Item.all.each do |item| %>
+                                          <li><%= link_to item.name.capitalize, item_path(item) %></li>
+                                        <% end %>
+                                        <% if logged_in? && current_player.admin? %>
+                                          <li role="separator" class="divider"></li>
+                                          <li><%= link_to "Adicionar item", new_item_path %></li>
+                                        <% end %>
+                                      </ul>
+                                    </div>
                                   </div>
+                                  <%= link_to players_path, class: "nav-button-mc mx-2 my-auto" do %>
+                                    <div class="button-mc-container">
+                                      <span class="imgconfig imgsteve"></span>
+                                      <%= content_tag :span, "Jogadores", class: "minecraft-font" %>
+                                    </div>
+                                  <% end %>
+                                  <%= link_to players_path, class: "nav-button-mc mx-2 my-auto" do %>
+                                    <div class="button-mc-container">
+                                      <span class="imgconfig imgposts"></span>
+                                      <%= content_tag :span, "Postagens", class: "minecraft-font" %>
+                                    </div>
+                                  <% end %>
                                 </div>
-                                <%= link_to players_path, class: "nav-button-mc" do %>
-                                  <div class="button-mc-container">
-                                    <span class="imgconfig imgsteve"></span>
-                                    <%= content_tag :span, "Jogadores", class: "minecraft-font" %>
-                                  </div>
-                                <% end %>
-                                <%= link_to players_path, class: "nav-button-mc" do %>
-                                  <div class="button-mc-container">
-                                    <span class="imgconfig imgposts"></span>
-                                    <%= content_tag :span, "Postagens", class: "minecraft-font" %>
-                                  </div>
-                                <% end %>
-                                <% if logged_in? %>
-                                  <div class="dropdown nav-button-mc">
-                                    <div class="button-mc-container">
-                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="space"><span class="imgconfig imgcreeper"></span>Mais<span class="caret"></span></span></a>
-                                      <ul class="dropdown-menu">
-                                        <li><%= link_to "Criar novo post", new_post_path %></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">----</a></li>
-                                      </ul>
+                                <div class="d-flex justify-content-around items-menu items-menu-2">
+                                  <% if logged_in? %>
+                                    <div class="dropdown mx-2 my-auto">
+                                      <div class="nav-button-mc">
+                                        <div href="#" class="dropdown-toggle button-mc-container" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                          <span class="imgconfig imgcreeper title"></span>
+                                          <span class="minecraft-font">Mais</span>
+                                        </div>
+                                        <ul class="dropdown-menu">
+                                          <li><%= link_to "Criar novo post", new_post_path %></li>
+                                          <li role="separator" class="divider"></li>
+                                          <li><a href="#">----</a></li>
+                                        </ul>
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div class="dropdown nav-button-mc">
-                                    <div class="button-mc-container">
-                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="space"><%= current_player.playername.capitalize %> Perfil <%= "Admin" if current_player.admin? %><span class="caret"></span></span></a>
-                                      <ul class="dropdown-menu">
-                                        <li><%= link_to "Ver meu perfil", player_path(current_player) %></li>
-                                        <li><%= link_to "Editar meu perfil", edit_player_path(current_player) %></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><%= link_to "Sair", logout_path, method: :delete %></li>
-                                      </ul>
+                                    <div class="dropdown mx-2 my-auto">
+                                      <div class="nav-button-mc">
+                                        <div href="#" class="dropdown-toggle button-mc-container" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                          <span class="title"><%= current_player.playername %></span>
+                                          <span>Perfil</span>
+                                          <%= "Admin" if current_player.admin? %>
+                                        </div>
+                                        <ul class="dropdown-menu">
+                                          <li><%= link_to "Ver meu perfil", player_path(current_player) %></li>
+                                          <li><%= link_to "Editar meu perfil", edit_player_path(current_player) %></li>
+                                          <li role="separator" class="divider"></li>
+                                          <li><%= link_to "Sair", logout_path, method: :delete %></li>
+                                        </ul>
+                                      </div>
                                     </div>
-                                  </div>
-                                  <span class= "imgconfig2"><%= link_to gravatar_for(current_player, size: 45 ), player_path(current_player), class: "imgconfig3" %></span>
-                                <% else %>
-                                  <%= link_to login_path, class: "nav-button-mc" do %>
-                                    <div class="button-mc-container">
-                                      <span><i class="bi bi-box-arrow-in-right"></i></span>
-                                      <%= content_tag :span, "Entrar", class: "minecraft-font" %>
-                                    </div>
+                                    <span class= "profile-photo-skin">
+                                      <div class="background-profile d-flex justify-content-center align-items-center">
+                                        <%= link_to gravatar_for(current_player, size: 35 ), player_path(current_player), class: "imgconfig3" %>
+                                      </div>
+                                    </span>
+                                  <% else %>
+                                    <%= link_to login_path, class: "nav-button-mc mx-2 my-auto" do %>
+                                      <div class="button-mc-container">
+                                        <span><i class="bi bi-box-arrow-in-right"></i></span>
+                                        <%= content_tag :span, "Entrar", class: "minecraft-font" %>
+                                      </div>
+                                    <% end %>
+                                    <%= link_to signup_path, class: "nav-button-mc mx-2 my-auto" do %>
+                                      <div class="button-mc-container">
+                                        <span><i class="bi bi-person-plus"></i></span>
+                                        <%= content_tag :span, "Cadastrar", class: "minecraft-font" %>
+                                      </div>
+                                    <% end %>
                                   <% end %>
-                                  <%= link_to signup_path, class: "nav-button-mc" do %>
-                                    <div class="button-mc-container">
-                                      <span><i class="bi bi-person-plus"></i></span>
-                                      <%= content_tag :span, "Cadastrar", class: "minecraft-font" %>
-                                    </div>
-                                  <% end %>
-                                <% end %>
+                                </div>
                               </span>
                             </label>
                           </div>
                         </div>
                     </nav>
-                </div>
             </div>
           </div>
           <div class="header-sun sun-y">
