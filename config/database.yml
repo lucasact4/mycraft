@@ -4,7 +4,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   password: password
-  host: db
+  host: <%= ENV.fetch("DB_HOST", "db") %>  # O nome do host é 'db', mas pode ser sobrescrito pela variável de ambiente.
 
 development:
   <<: *default
@@ -16,4 +16,4 @@ test:
 
 production:
   <<: *default
-  database: myapp_production
+  database: <%= ENV['DATABASE_URL'] %>  # Usando a variável de ambiente DATABASE_URL para produção
