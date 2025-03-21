@@ -15,5 +15,6 @@ test:
   database: myapp_test
 
 production:
-  <<: *default
-  database: <%= ENV['DATABASE_URL'] %>  # Usando a variável de ambiente DATABASE_URL para produção
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: 5
+  timeout: 5000
