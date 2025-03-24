@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: ""
+      DATABASE_URL: "postgres://postgres:password@db:5432/myapp_development"
 
 volumes:
   postgres_data:
